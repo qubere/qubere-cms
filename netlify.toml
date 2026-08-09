@@ -4,24 +4,7 @@
   status = 301
   force = true
 
-# Domain canonicalization: www to non-www
-[[redirects]]
-  from = "https://www.qubere.ai/*"
-  to = "https://qubere.ai/:splat"
-  status = 301
-  force = true
 
-[[redirects]]
-  from = "http://www.qubere.ai/*"
-  to = "https://qubere.ai/:splat"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "http://qubere.ai/*"
-  to = "https://qubere.ai/:splat"
-  status = 301
-  force = true
 
 # Blog subdomain consolidation to main domain /blog/
 [[redirects]]
