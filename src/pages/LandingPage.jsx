@@ -3,6 +3,7 @@ import KnowledgeGraph from '../components/KnowledgeGraph';
 import AgentSimulator from '../components/AgentSimulator';
 import { 
   ShieldCheck, 
+  Shield,
   Sparkles, 
   ArrowRight, 
   Cpu, 

@@ -9,6 +9,7 @@ import {
   CheckCircle2, 
   Sparkles, 
   ArrowRight,
+  ChevronRight,
   Database,
   Lock,
   Workflow
