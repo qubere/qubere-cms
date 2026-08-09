@@ -5,6 +5,15 @@ export default function AiCustomsCompliancePage({ onOpenModal }) {
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 py-12 space-y-16">
       
+      {/* Breadcrumb Navigation */}
+      <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs font-semibold text-[#86868B]">
+        <a href="/" className="hover:text-[#1D1D1F] transition-colors">Home</a>
+        <span>/</span>
+        <a href="/blog" className="hover:text-[#1D1D1F] transition-colors">Blog</a>
+        <span>/</span>
+        <span className="text-[#1D1D1F] truncate">AI Customs Compliance</span>
+      </nav>
+
       {/* Hero Section */}
       <section className="text-center space-y-4">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0071E3]/10 border border-[#0071E3]/20 text-[#0071E3] text-xs font-bold shadow-sm">
@@ -113,10 +122,11 @@ export default function AiCustomsCompliancePage({ onOpenModal }) {
       <section className="text-center py-8 space-y-4">
         <h3 className="text-2xl font-bold text-[#1D1D1F]">Ready to streamline document-to-filing readiness?</h3>
         <button
-          onClick={() => onOpenModal('deck')}
-          className="px-6 py-3.5 rounded-full bg-[#0071E3] hover:bg-[#0077ED] text-white font-bold text-xs sm:text-sm shadow-lg transition-all"
+          onClick={() => onOpenModal('demo')}
+          className="px-6 py-3.5 rounded-full bg-[#0071E3] hover:bg-[#0077ED] text-white font-bold text-xs sm:text-sm shadow-lg transition-all flex items-center gap-2 mx-auto cursor-pointer"
         >
-          Request Qubere Product Overview
+          <span>Schedule Product Demo</span>
+          <ChevronRight className="w-4 h-4" />
         </button>
       </section>
 

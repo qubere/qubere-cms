@@ -389,6 +389,15 @@ export default function LogicalArchitecturePage({ onOpenModal }) {
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 space-y-16">
       
+      {/* Breadcrumb Navigation */}
+      <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs font-semibold text-[#86868B]">
+        <a href="/" className="hover:text-[#1D1D1F] transition-colors">Home</a>
+        <span>/</span>
+        <a href="/blog" className="hover:text-[#1D1D1F] transition-colors">Blog</a>
+        <span>/</span>
+        <span className="text-[#1D1D1F] truncate">Logical Architecture</span>
+      </nav>
+
       {/* Header Section */}
       <section className="text-center space-y-4 max-w-3xl mx-auto">
         <h1 className="text-3xl sm:text-5xl font-extrabold text-[#1D1D1F] tracking-tight leading-tight">
@@ -724,21 +733,23 @@ export default function LogicalArchitecturePage({ onOpenModal }) {
         <div className="pt-6 border-t border-black/10 flex flex-wrap items-center justify-between gap-4">
           <div>
             <h4 className="text-base font-bold text-[#1D1D1F]">Want to review our technical architecture with our engineering team?</h4>
-            <p className="text-xs text-[#6E6E73]">Schedule a 1-on-1 technical deep dive or request our investor pitch deck.</p>
+            <p className="text-xs text-[#6E6E73]">Schedule a 1-on-1 technical deep dive or explore live platform capabilities.</p>
           </div>
           <div className="flex items-center gap-3">
             <button
-              onClick={() => onOpenModal('deck')}
-              className="px-5 py-2.5 rounded-full bg-[#0071E3] hover:bg-[#0077ED] text-white font-bold text-xs shadow-md transition-all"
-            >
-              Request Pitch Deck
-            </button>
-            <button
               onClick={() => onOpenModal('demo')}
-              className="px-5 py-2.5 rounded-full bg-white hover:bg-[#FAFAFC] text-[#1D1D1F] font-semibold text-xs border border-black/10 transition-all"
+              className="px-5 py-2.5 rounded-full bg-[#0071E3] hover:bg-[#0077ED] text-white font-bold text-xs shadow-md transition-all cursor-pointer"
             >
               Schedule Tech Deep Dive
             </button>
+            <a
+              href="https://demo-app.qubere.ai"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-5 py-2.5 rounded-full bg-white hover:bg-[#FAFAFC] text-[#1D1D1F] font-semibold text-xs border border-black/10 transition-all"
+            >
+              Log In to App
+            </a>
           </div>
         </div>
       </article>

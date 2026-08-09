@@ -70,25 +70,24 @@ export default function LandingPage({ setActiveTab, onOpenModal }) {
         {/* Hero CTAs */}
         <div className="flex flex-wrap items-center justify-center gap-3 pt-4">
           <button
-            onClick={() => onOpenModal('deck')}
-            className="px-6 py-3.5 rounded-full bg-[#0071E3] hover:bg-[#0077ED] text-white font-bold text-xs sm:text-sm shadow-lg shadow-blue-500/20 transition-all flex items-center gap-2"
+            onClick={() => onOpenModal('demo')}
+            className="px-6 py-3.5 rounded-full bg-[#0071E3] hover:bg-[#0077ED] text-white font-bold text-xs sm:text-sm shadow-lg shadow-blue-500/20 transition-all flex items-center gap-2 cursor-pointer"
           >
-            <FileText className="w-4 h-4" />
-            <span>Request Pitch Deck</span>
+            <Sparkles className="w-4 h-4" />
+            <span>Schedule Product Demo</span>
             <ChevronRight className="w-4 h-4" />
           </button>
           
-          <button
-            onClick={() => setActiveTab('graph')}
+          <a
+            href="https://demo-app.qubere.ai"
+            target="_blank"
+            rel="noopener noreferrer"
             className="px-6 py-3.5 rounded-full bg-white hover:bg-[#FAFAFC] text-[#1D1D1F] font-semibold text-xs sm:text-sm border border-black/10 shadow-sm transition-all flex items-center gap-2"
           >
-            <Layers className="w-4 h-4 text-[#0071E3]" />
-            <span>Explore Knowledge Graph</span>
-          </button>
+            <Shield className="w-4 h-4 text-[#0071E3]" />
+            <span>Log In to Platform</span>
+          </a>
         </div>
-
-
-
       </section>
 
 
@@ -162,30 +161,32 @@ export default function LandingPage({ setActiveTab, onOpenModal }) {
         </div>
       </section>
 
-      {/* FUNDRAISING & SALES CALL TO ACTION CARD */}
+      {/* PRODUCT DEMO CALL TO ACTION CARD */}
       <section className="max-w-4xl mx-auto px-4">
         <div className="apple-card-light p-8 sm:p-12 text-center space-y-6">
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1D1D1F] tracking-tight">
-            Partner With Us
+            Ready to Automate Your Customs Operations?
           </h2>
-          <p className="text-xs sm:text-sm text-[#6E6E73] max-w-xl mx-auto leading-relaxed">
-            We are opening enterprise pilot programs and closing our seed investment round. Contact our team to review our pitch deck or request a live pilot.
+          <p className="text-xs sm:text-sm text-[#6E6E73] max-w-xl mx-auto leading-relaxed font-medium">
+            Join leading freight forwarders, customs brokers, and global importers turning raw trade documents into review-ready entry filings with Qubere.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
             <button
-              onClick={() => onOpenModal('deck')}
-              className="px-6 py-3.5 rounded-full bg-[#0071E3] hover:bg-[#0077ED] text-white font-bold text-xs sm:text-sm shadow-lg shadow-blue-500/20 transition-all flex items-center gap-2"
-            >
-              <FileText className="w-4 h-4" />
-              <span>Request Pitch Deck</span>
-            </button>
-            <button
               onClick={() => onOpenModal('demo')}
+              className="px-6 py-3.5 rounded-full bg-[#0071E3] hover:bg-[#0077ED] text-white font-bold text-xs sm:text-sm shadow-lg shadow-blue-500/20 transition-all flex items-center gap-2 cursor-pointer"
+            >
+              <span>Schedule Enterprise Demo</span>
+              <ChevronRight className="w-4 h-4" />
+            </button>
+            <a
+              href="https://demo-app.qubere.ai"
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-6 py-3.5 rounded-full bg-[#F5F5F7] hover:bg-[#E8E8ED] text-[#1D1D1F] font-semibold text-xs sm:text-sm border border-black/10 transition-all"
             >
-              Schedule Enterprise Demo
-            </button>
+              Log In to App
+            </a>
           </div>
         </div>
       </section>

@@ -5,6 +5,15 @@ export default function EvidenceBackedAiArticlePage({ onOpenModal }) {
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12 space-y-12">
       
+      {/* Breadcrumb Navigation */}
+      <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs font-semibold text-[#86868B]">
+        <a href="/" className="hover:text-[#1D1D1F] transition-colors">Home</a>
+        <span>/</span>
+        <a href="/blog" className="hover:text-[#1D1D1F] transition-colors">Blog</a>
+        <span>/</span>
+        <span className="text-[#1D1D1F] truncate">Evidence-Backed AI</span>
+      </nav>
+
       {/* Article Header */}
       <header className="space-y-6 text-center sm:text-left">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0071E3]/10 border border-[#0071E3]/20 text-[#0071E3] text-xs font-bold shadow-sm">
@@ -19,7 +28,9 @@ export default function EvidenceBackedAiArticlePage({ onOpenModal }) {
         <div className="flex flex-wrap items-center justify-center sm:justify-start gap-4 text-xs text-[#6E6E73] font-medium border-y border-black/5 py-4">
           <div className="flex items-center gap-2">
             <User className="w-4 h-4 text-[#0071E3]" />
-            <span className="font-bold text-[#1D1D1F]">Rachit Lohani & Krishna Bandi</span>
+            <a href="/about" className="font-bold text-[#1D1D1F] hover:text-[#0071E3] transition-colors">
+              Rachit Lohani & Krishna Bandi
+            </a>
           </div>
           <span>•</span>
           <span>Published August 2026</span>

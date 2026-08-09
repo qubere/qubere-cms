@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Qubere Engineering &amp; Research Blog</title>
+    <link>https://qubere.ai/blog</link>
+    <description>Technical whitepapers, trade knowledge graph research, and regulatory AI engineering breakdowns from Qubere.</description>
+    <language>en-us</language>
+    <atom:link href="https://qubere.ai/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title><![CDATA[Why Customs AI Must Be Evidence-Backed Before It Is Autonomous | Qubere]]></title>
+      <link>https://qubere.ai/blog/evidence-backed-ai</link>
+      <guid>https://qubere.ai/blog/evidence-backed-ai</guid>
+      <description><![CDATA[Learn why general LLMs risk penalties in customs compliance and how Qubere anchors every classification proposal in document bounding boxes and CROSS rulings.]]></description>
+      <pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate>
+      <author>Rachit Lohani, Krishna Bandi</author>
+    </item>
+    <item>
+      <title><![CDATA[AI-Native Trade Knowledge Graphs vs Document AI | Qubere]]></title>
+      <link>https://qubere.ai/blog/trade-knowledge-graph</link>
+      <guid>https://qubere.ai/blog/trade-knowledge-graph</guid>
+      <description><![CDATA[Discover how Qubere constructs a connected transaction network of Supplier, Product, HTS Code, and Port nodes for global trade compliance.]]></description>
+      <pubDate>Wed, 05 Aug 2026 00:00:00 GMT</pubDate>
+      <author>Qubere Engineering Team</author>
+    </item>
+    <item>
+      <title><![CDATA[Qubere AI Customs Compliance Logical Architecture | Qubere]]></title>
+      <link>https://qubere.ai/blog/architecture</link>
+      <guid>https://qubere.ai/blog/architecture</guid>
+      <description><![CDATA[Technical architecture breakdown of Qubere's 6-layer multi-agent control plane, zero-trust boundary, and immutable evidence storage.]]></description>
+      <pubDate>Wed, 05 Aug 2026 00:00:00 GMT</pubDate>
+      <author>Qubere Architecture Team</author>
+    </item>
+    <item>
+      <title><![CDATA[Automating US Customs Compliance: Invoice to CBP Filing | Qubere]]></title>
+      <link>https://qubere.ai/blog/ai-customs-compliance</link>
+      <guid>https://qubere.ai/blog/ai-customs-compliance</guid>
+      <description><![CDATA[Deep dive into how AI ingests commercial invoices, proposes 10-digit HTS codes, estimates duties, and automates 7501 Entry Summaries with PGA screening.]]></description>
+      <pubDate>Tue, 28 Jul 2026 00:00:00 GMT</pubDate>
+      <author>Qubere Product Team</author>
+    </item>
+    <item>
+      <title><![CDATA[US Import Entry Readiness Checklist & Verification | Qubere]]></title>
+      <link>https://qubere.ai/blog/us-import-entry-readiness</link>
+      <guid>https://qubere.ai/blog/us-import-entry-readiness</guid>
+      <description><![CDATA[Essential verification checklist for customs compliance teams before submitting entry summaries under 19 U.S.C. § 1484 Reasonable Care standards.]]></description>
+      <pubDate>Mon, 20 Jul 2026 00:00:00 GMT</pubDate>
+      <author>Compliance Practice Lead</author>
+    </item>
+  </channel>
+</rss>

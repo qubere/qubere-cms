@@ -35,6 +35,13 @@ export default function TeamPage({ onOpenModal }) {
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10 space-y-16">
 
+      {/* Breadcrumb Navigation */}
+      <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs font-semibold text-[#86868B]">
+        <a href="/" className="hover:text-[#1D1D1F] transition-colors">Home</a>
+        <span>/</span>
+        <span className="text-[#1D1D1F]">About & Leadership</span>
+      </nav>
+
       {/* Header */}
       <div className="text-center space-y-3 max-w-3xl mx-auto">
         <h1 className="text-4xl sm:text-6xl font-extrabold text-[#1D1D1F] tracking-tight">
@@ -250,20 +257,28 @@ export default function TeamPage({ onOpenModal }) {
           ))}
         </div>
 
-        {/* Executive Deck CTA */}
+        {/* Enterprise Demo CTA */}
         <div className="apple-card-light p-8 text-center space-y-4">
-          <h3 className="text-xl font-bold text-[#1D1D1F]">Partner With Qubere</h3>
+          <h3 className="text-xl font-bold text-[#1D1D1F]">Transform Your Customs Operations With Qubere</h3>
           <p className="text-xs sm:text-sm text-[#6E6E73] max-w-xl mx-auto leading-relaxed font-medium">
-            Review our pitch deck, enterprise customer pilot case studies, and seed fundraising terms with the founding team.
+            Schedule an enterprise platform demonstration with our founders and trade engineering team.
           </p>
-          <div className="pt-2 flex justify-center">
+          <div className="pt-2 flex justify-center items-center gap-3">
             <button
-              onClick={() => onOpenModal('deck')}
-              className="px-6 py-3.5 rounded-full bg-[#0071E3] hover:bg-[#0077ED] text-white font-bold text-xs sm:text-sm shadow-md shadow-blue-500/20 transition-all flex items-center gap-2"
+              onClick={() => onOpenModal('demo')}
+              className="px-6 py-3.5 rounded-full bg-[#0071E3] hover:bg-[#0077ED] text-white font-bold text-xs sm:text-sm shadow-md shadow-blue-500/20 transition-all flex items-center gap-2 cursor-pointer"
             >
-              <FileText className="w-4 h-4" />
-              <span>Request Investor Pitch Deck</span>
+              <span>Schedule Enterprise Demo</span>
+              <ChevronRight className="w-4 h-4" />
             </button>
+            <a
+              href="https://demo-app.qubere.ai"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3.5 rounded-full bg-[#F5F5F7] hover:bg-[#E8E8ED] text-[#1D1D1F] font-semibold text-xs sm:text-sm border border-black/10 transition-all"
+            >
+              Log In to App
+            </a>
           </div>
         </div>
       </section>

@@ -221,14 +221,22 @@ export default function ProductSuitePage({ onOpenModal }) {
         <p className="text-xs sm:text-sm text-[#6E6E73] max-w-xl mx-auto font-medium">
           All Qubere product modules integrate seamlessly with existing ERPs (SAP, Oracle), TMS platforms, and legacy broker systems via typed REST & GraphQL APIs.
         </p>
-        <div className="pt-2 flex justify-center">
+        <div className="pt-2 flex justify-center items-center gap-3">
           <button
             onClick={() => onOpenModal('demo')}
-            className="px-6 py-3 rounded-full bg-[#0071E3] hover:bg-[#0077ED] text-white font-bold text-xs sm:text-sm shadow-md transition-all flex items-center gap-2"
+            className="px-6 py-3 rounded-full bg-[#0071E3] hover:bg-[#0077ED] text-white font-bold text-xs sm:text-sm shadow-md transition-all flex items-center gap-2 cursor-pointer"
           >
-            <span>Request Technical Architecture Demo</span>
+            <span>Schedule Enterprise Demo</span>
             <ChevronRight className="w-4 h-4" />
           </button>
+          <a
+            href="https://demo-app.qubere.ai"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-6 py-3 rounded-full bg-[#F5F5F7] hover:bg-[#E8E8ED] text-[#1D1D1F] font-semibold text-xs sm:text-sm border border-black/10 transition-all"
+          >
+            Log In to App
+          </a>
         </div>
       </section>
 

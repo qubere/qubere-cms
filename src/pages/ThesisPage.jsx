@@ -228,21 +228,29 @@ export default function ThesisPage({ setActiveTab, onOpenModal }) {
         <ExpansionRoadmap />
       </section>
 
-      {/* INVESTMENT & DECK CTA */}
+      {/* PRODUCT DEMO CTA */}
       <section className="apple-card-light p-8 sm:p-12 text-center space-y-6">
-        <h2 className="text-3xl font-extrabold text-[#1D1D1F]">Interested in Our Investment Thesis?</h2>
+        <h2 className="text-3xl font-extrabold text-[#1D1D1F]">See Autonomous Customs AI in Action</h2>
         <p className="text-xs sm:text-sm text-[#6E6E73] max-w-xl mx-auto leading-relaxed font-medium">
-          Request our complete pitch deck, financial model, and customer case studies to learn more about our seed round and market strategy.
+          Schedule a live demonstration of Qubere’s document-to-filing readiness platform for your trade or brokerage team.
         </p>
 
         <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
           <button
-            onClick={() => onOpenModal('deck')}
-            className="px-6 py-3.5 rounded-full bg-[#0071E3] hover:bg-[#0077ED] text-white font-bold text-xs sm:text-sm transition-all shadow-lg shadow-blue-500/20 flex items-center gap-2"
+            onClick={() => onOpenModal('demo')}
+            className="px-6 py-3.5 rounded-full bg-[#0071E3] hover:bg-[#0077ED] text-white font-bold text-xs sm:text-sm transition-all shadow-lg shadow-blue-500/20 flex items-center gap-2 cursor-pointer"
           >
-            <FileText className="w-4 h-4" />
-            <span>Request Pitch Deck</span>
+            <span>Schedule Enterprise Demo</span>
+            <ChevronRight className="w-4 h-4" />
           </button>
+          <a
+            href="https://demo-app.qubere.ai"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-6 py-3.5 rounded-full bg-white hover:bg-[#FAFAFC] text-[#1D1D1F] font-semibold text-xs sm:text-sm border border-black/10 transition-all"
+          >
+            Log In to App
+          </a>
         </div>
       </section>
 

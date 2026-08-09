@@ -6,13 +6,12 @@ import {
   ShieldCheck, 
   FileText, 
   ChevronRight, 
-  Tag, 
   Search, 
   Rss,
   Calendar,
   User,
-  ArrowRight
 } from 'lucide-react';
+import { TAB_TO_PATH } from '../App';
 
 export default function BlogHubPage({ setActiveTab, onOpenModal }) {
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -22,6 +21,7 @@ export default function BlogHubPage({ setActiveTab, onOpenModal }) {
   const blogPosts = [
     {
       id: 'trade-knowledge-graph',
+      href: '/blog/trade-knowledge-graph',
       title: 'Building an AI-Native Trade Knowledge Graph: Why Document AI Isn\'t Enough',
       excerpt: 'Today\'s trade compliance systems think in terms of documents. Our system thinks in terms of knowledge. Here is why that distinction fundamentally changes how an autonomous trade platform is built.',
       author: 'Qubere Engineering Team',
@@ -34,6 +34,7 @@ export default function BlogHubPage({ setActiveTab, onOpenModal }) {
     },
     {
       id: 'architecture',
+      href: '/blog/architecture',
       title: 'Qubere Logical Architecture & Governed Multi-Agent System Stack',
       excerpt: 'Deep dive into the 6-layer agentic architecture powering autonomous customs compliance: Experience API, Zero-Trust Boundary, Durable Control Plane, Intelligence Services, Evidence Storage, and Governed Human Review.',
       author: 'Qubere Architecture Team',
@@ -46,6 +47,7 @@ export default function BlogHubPage({ setActiveTab, onOpenModal }) {
     },
     {
       id: 'thesis',
+      href: '/thesis',
       title: 'The Intelligent Operating Layer for Global Commerce: Our Investment Thesis',
       excerpt: 'Customs compliance is a $30B+ knowledge problem. Explore why legacy software fails, how agentic customs transforms trade, and our market opportunity roadmap.',
       author: 'Founding Partners',
@@ -58,6 +60,7 @@ export default function BlogHubPage({ setActiveTab, onOpenModal }) {
     },
     {
       id: 'evidence-backed-ai',
+      href: '/blog/evidence-backed-ai',
       title: 'Why Customs AI Must Be Evidence-Backed Before It Is Autonomous',
       excerpt: 'General-purpose LLMs predict likely tokens, but in customs compliance, ungrounded AI leads to costly misclassifications and CBP penalties. Here is how evidence-backed grounding protects importers.',
       author: 'Rachit Lohani & Krishna Bandi',
@@ -70,6 +73,7 @@ export default function BlogHubPage({ setActiveTab, onOpenModal }) {
     },
     {
       id: 'ai-customs-compliance',
+      href: '/blog/ai-customs-compliance',
       title: 'Automating US Customs Compliance: From Commercial Invoices to Entry Filings',
       excerpt: 'A comprehensive deep-dive into how AI ingests messy shipping documents, proposes HS codes, estimates duties, and screens partner government agencies (FDA, EPA).',
       author: 'Qubere Product Team',
@@ -82,6 +86,7 @@ export default function BlogHubPage({ setActiveTab, onOpenModal }) {
     },
     {
       id: 'us-import-entry-readiness',
+      href: '/blog/us-import-entry-readiness',
       title: 'US Import Entry Readiness Checklist & Verification Breakdown',
       excerpt: 'What enterprise trade compliance officers must validate before submitting entry summaries to CBP, and where legacy document data typically breaks down.',
       author: 'Compliance Practice Lead',
@@ -104,6 +109,11 @@ export default function BlogHubPage({ setActiveTab, onOpenModal }) {
   });
 
   const featuredPosts = blogPosts.filter(p => p.featured);
+
+  const handleCardClick = (e, target) => {
+    e.preventDefault();
+    setActiveTab(target);
+  };
 
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 space-y-16">
@@ -157,24 +167,28 @@ export default function BlogHubPage({ setActiveTab, onOpenModal }) {
         </div>
       </section>
 
-      {/* FEATURED POSTS CAROUSEL / GRID */}
+      {/* FEATURED POSTS GRID */}
       {selectedCategory === 'All' && !searchQuery && (
         <section className="space-y-6">
           <div className="flex items-center justify-between">
             <h2 className="text-xl sm:text-2xl font-extrabold text-[#1D1D1F] tracking-tight">
               Featured Articles
             </h2>
-            <span className="text-xs text-[#86868B] font-semibold">Latest Whitepapers</span>
+            <a href="/feed.xml" target="_blank" rel="noopener noreferrer" className="text-xs text-[#0071E3] hover:underline font-semibold flex items-center gap-1">
+              <Rss className="w-3.5 h-3.5" />
+              <span>RSS Feed</span>
+            </a>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {featuredPosts.map((post) => {
               const Icon = post.icon;
               return (
-                <div
+                <a
                   key={post.id}
-                  onClick={() => setActiveTab(post.id)}
-                  className="apple-card-light p-8 cursor-pointer group hover:border-[#0071E3]/40 transition-all flex flex-col justify-between space-y-6"
+                  href={post.href}
+                  onClick={(e) => handleCardClick(e, post.id)}
+                  className="apple-card-light p-8 cursor-pointer group hover:border-[#0071E3]/40 transition-all flex flex-col justify-between space-y-6 block no-underline"
                 >
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
@@ -208,11 +222,11 @@ export default function BlogHubPage({ setActiveTab, onOpenModal }) {
                       <span>{post.readTime}</span>
                     </div>
                     <div className="flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-                      <span>Read Whitepaper</span>
+                      <span>Read Article</span>
                       <ChevronRight className="w-4 h-4" />
                     </div>
                   </div>
-                </div>
+                </a>
               );
             })}
           </div>
@@ -232,12 +246,12 @@ export default function BlogHubPage({ setActiveTab, onOpenModal }) {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {filteredPosts.map((post) => {
-            const Icon = post.icon;
             return (
-              <div
+              <a
                 key={post.id}
-                onClick={() => setActiveTab(post.id)}
-                className="apple-card-light p-6 cursor-pointer group hover:border-[#0071E3]/40 transition-all flex flex-col justify-between space-y-4"
+                href={post.href}
+                onClick={(e) => handleCardClick(e, post.id)}
+                className="apple-card-light p-6 cursor-pointer group hover:border-[#0071E3]/40 transition-all flex flex-col justify-between space-y-4 block no-underline"
               >
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
@@ -263,7 +277,7 @@ export default function BlogHubPage({ setActiveTab, onOpenModal }) {
                     <ChevronRight className="w-3.5 h-3.5" />
                   </div>
                 </div>
-              </div>
+              </a>
             );
           })}
         </div>
@@ -278,21 +292,20 @@ export default function BlogHubPage({ setActiveTab, onOpenModal }) {
         <p className="text-xs sm:text-sm text-[#6E6E73] max-w-lg mx-auto font-medium">
           Receive technical whitepapers, trade knowledge graph research, and regulatory AI breakdowns directly to your inbox.
         </p>
-        <div className="pt-2 flex justify-center max-w-md mx-auto gap-2">
-          <input
-            type="email"
-            placeholder="Enter your work email..."
-            className="flex-1 px-4 py-2.5 rounded-xl bg-white border border-black/10 text-xs text-[#1D1D1F] focus:outline-none focus:ring-2 focus:ring-[#0071E3]/30"
-          />
-          <button
-            onClick={() => onOpenModal('demo')}
-            className="px-5 py-2.5 rounded-xl bg-[#0071E3] hover:bg-[#0077ED] text-white font-bold text-xs shadow-md transition-all whitespace-nowrap"
+        <div className="pt-2 flex justify-center items-center gap-4">
+          <a
+            href="/feed.xml"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-5 py-2.5 rounded-xl bg-black/5 hover:bg-black/10 text-[#1D1D1F] border border-black/10 font-bold text-xs transition-all flex items-center gap-2"
           >
-            Subscribe
-          </button>
+            <Rss className="w-4 h-4 text-[#0071E3]" />
+            <span>Subscribe via RSS Feed</span>
+          </a>
         </div>
       </section>
 
     </div>
   );
 }
+

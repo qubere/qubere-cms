@@ -1,11 +1,11 @@
 /**
  * @file App.jsx
  * @author Rachit Lohani
- * @description Main application controller and routing entry point for Agentic Customs launch site.
- * Designed with Apple minimalist light aesthetics. Assisted by AI for component layout and state orchestration.
+ * @description Main application controller and routing entry point for Qubere landing site.
+ * Supports clean HTML5 pushState routing with pre-rendered fallback support.
  */
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Modal from './components/Modal';
@@ -22,66 +22,92 @@ import ProductSuitePage from './pages/ProductSuitePage';
 import LogicalArchitecturePage from './pages/LogicalArchitecturePage';
 import KnowledgeGraph from './components/KnowledgeGraph';
 
+export const ROUTE_MAP = {
+  '/': 'home',
+  '/product': 'product',
+  '/about': 'team',
+  '/team': 'team',
+  '/blog': 'blog',
+  '/blog/trade-knowledge-graph': 'trade-knowledge-graph',
+  '/blog/architecture': 'architecture',
+  '/blog/evidence-backed-ai': 'evidence-backed-ai',
+  '/blog/ai-customs-compliance': 'ai-customs-compliance',
+  '/blog/us-import-entry-readiness': 'us-import-entry-readiness',
+  '/graph': 'graph',
+  '/thesis': 'thesis',
+  // legacy paths for fallback compatibility
+  '/trade-knowledge-graph': 'trade-knowledge-graph',
+  '/architecture': 'architecture',
+  '/evidence-backed-ai': 'evidence-backed-ai',
+  '/ai-customs-compliance': 'ai-customs-compliance',
+  '/us-import-entry-readiness': 'us-import-entry-readiness',
+};
+
+export const TAB_TO_PATH = {
+  'home': '/',
+  'product': '/product',
+  'team': '/about',
+  'blog': '/blog',
+  'trade-knowledge-graph': '/blog/trade-knowledge-graph',
+  'architecture': '/blog/architecture',
+  'evidence-backed-ai': '/blog/evidence-backed-ai',
+  'ai-customs-compliance': '/blog/ai-customs-compliance',
+  'us-import-entry-readiness': '/blog/us-import-entry-readiness',
+  'graph': '/graph',
+  'thesis': '/thesis',
+};
+
+export function getTabFromLocation() {
+  if (typeof window === 'undefined') return 'home';
+  const path = window.location.pathname.replace(/\/$/, '') || '/';
+  if (ROUTE_MAP[path]) {
+    return ROUTE_MAP[path];
+  }
+  const hash = window.location.hash.replace('#', '');
+  if (hash && TAB_TO_PATH[hash]) {
+    return hash;
+  }
+  return 'home';
+}
+
 export default function App() {
-  const getInitialTab = () => {
-    const hostname = window.location.hostname.toLowerCase();
-    const path = window.location.pathname.replace('/', '').toLowerCase();
-    const hash = window.location.hash.replace('#', '').toLowerCase();
-    const target = path || hash;
-
-    // Check if user is accessing via blog.qubere.ai or blog.qubere.com subdomain
-    if (hostname.startsWith('blog.') || hostname.startsWith('blog-')) {
-      if (['architecture', 'ai-customs-compliance', 'us-import-entry-readiness', 'evidence-backed-ai', 'trade-knowledge-graph', 'product', 'team', 'thesis', 'graph'].includes(target)) {
-        return target;
-      }
-      return 'blog';
-    }
-    
-    if (['architecture', 'ai-customs-compliance', 'us-import-entry-readiness', 'evidence-backed-ai', 'trade-knowledge-graph', 'blog', 'blog-hub', 'product', 'team', 'thesis', 'graph'].includes(target)) {
-      return target;
-    }
-    return 'home';
-  };
-
-  const [activeTab, setActiveTabState] = useState(getInitialTab);
+  const [activeTab, setActiveTabState] = useState(getTabFromLocation);
   const [modalOpen, setModalOpen] = useState(false);
-  const [modalMode, setModalMode] = useState('deck');
+  const [modalMode, setModalMode] = useState('demo');
 
-  // Sync tab changes to URL hash and browser history for shareable links
-  const setActiveTab = (tab) => {
-    setActiveTabState(tab);
-    if (tab === 'home') {
-      window.history.pushState(null, '', '/');
-    } else {
-      window.history.pushState(null, '', `/#${tab}`);
+  const setActiveTab = (target) => {
+    const targetTab = ROUTE_MAP[target] || target;
+    const targetPath = TAB_TO_PATH[targetTab] || (target.startsWith('/') ? target : '/');
+    
+    setActiveTabState(targetTab);
+    if (typeof window !== 'undefined') {
+      window.history.pushState(null, '', targetPath);
+      window.scrollTo(0, 0);
     }
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     const handlePopState = () => {
-      setActiveTabState(getInitialTab());
+      setActiveTabState(getTabFromLocation());
     };
     window.addEventListener('popstate', handlePopState);
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
-  const handleOpenModal = (mode = 'deck') => {
+  const handleOpenModal = (mode = 'demo') => {
     setModalMode(mode);
     setModalOpen(true);
   };
 
   return (
     <div className="min-h-screen bg-[#F5F5F7] text-[#1D1D1F] flex flex-col justify-between selection:bg-blue-500/20 selection:text-[#0071E3]">
-      
       <div>
-        {/* Apple light style header navbar */}
         <Navbar 
           activeTab={activeTab} 
           setActiveTab={setActiveTab} 
           onOpenModal={handleOpenModal} 
         />
 
-        {/* View switching based on activeTab state */}
         <main className="pt-6">
           {activeTab === 'home' && (
             <LandingPage 
@@ -145,13 +171,11 @@ export default function App() {
         </main>
       </div>
 
-      {/* Global Footer */}
       <Footer 
         setActiveTab={setActiveTab} 
         onOpenModal={handleOpenModal} 
       />
 
-      {/* Pitch deck request & Demo scheduling modal */}
       <Modal 
         isOpen={modalOpen} 
         onClose={() => setModalOpen(false)} 
@@ -160,3 +184,4 @@ export default function App() {
     </div>
   );
 }
+

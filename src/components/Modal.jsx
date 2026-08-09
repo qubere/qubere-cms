@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { X, CheckCircle2, Send, Lock, FileText, Calendar } from 'lucide-react';
+import { X, CheckCircle2, Send, Lock, Calendar } from 'lucide-react';
 
 const FORM_NAME = 'access-request';
 
-export default function Modal({ isOpen, onClose, mode = 'deck' }) {
+export default function Modal({ isOpen, onClose, mode = 'demo' }) {
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState('');
@@ -17,7 +17,7 @@ export default function Modal({ isOpen, onClose, mode = 'deck' }) {
 
   if (!isOpen) return null;
 
-  const requestType = mode === 'deck' ? 'Investor Pitch Deck' : 'Schedule Product Demo';
+  const requestType = 'Schedule Product Demo';
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -35,7 +35,7 @@ export default function Modal({ isOpen, onClose, mode = 'deck' }) {
         body: JSON.stringify({
           access_key: 'a9693b60-de9c-4d25-b339-8df5d7ff8ed5',
           email_to: 'hellorachitlohani@gmail.com',
-          subject: mode === 'deck' ? `Pitch Deck Request from ${formData.name}` : `Demo Request from ${formData.name}`,
+          subject: `Product Demo Request from ${formData.name} (${formData.company})`,
           from_name: formData.name,
           replyto: formData.email,
           request_type: requestType,
@@ -51,7 +51,6 @@ export default function Modal({ isOpen, onClose, mode = 'deck' }) {
       if (result.success || response.ok) {
         setSubmitted(true);
       } else {
-        // Fallback: try Netlify form submission or mailto fallback
         const body = new URLSearchParams(new FormData(e.target)).toString();
         const netlifyResp = await fetch('/__forms.html', {
           method: 'POST',
@@ -66,8 +65,7 @@ export default function Modal({ isOpen, onClose, mode = 'deck' }) {
         }
       }
     } catch {
-      // Fallback: trigger mailto pre-filled mail client
-      const mailSubject = encodeURIComponent(mode === 'deck' ? `Pitch Deck Request: ${formData.company}` : `Demo Request: ${formData.company}`);
+      const mailSubject = encodeURIComponent(`Demo Request: ${formData.company}`);
       const mailBody = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\nCompany: ${formData.company}\nRole: ${formData.role}\nNote: ${formData.note}`);
       window.location.href = `mailto:hellorachitlohani@gmail.com?subject=${mailSubject}&body=${mailBody}`;
       setSubmitted(true);
@@ -99,9 +97,9 @@ export default function Modal({ isOpen, onClose, mode = 'deck' }) {
             <div className="w-16 h-16 rounded-full bg-emerald-500/10 text-emerald-600 border border-emerald-500/20 flex items-center justify-center mx-auto animate-bounce">
               <CheckCircle2 className="w-8 h-8" />
             </div>
-            <h3 className="text-2xl font-extrabold text-[#1D1D1F]">Access Requested</h3>
+            <h3 className="text-2xl font-extrabold text-[#1D1D1F]">Demo Requested</h3>
             <p className="text-xs text-[#6E6E73] max-w-sm mx-auto leading-relaxed font-medium">
-              Thank you for reaching out. Our founders team will send the confidential {mode === 'deck' ? 'Investor Pitch Deck' : 'Enterprise Demo Invitation'} directly to <span className="text-[#0071E3] font-bold">{formData.email}</span> within 24 hours.
+              Thank you for reaching out! Our trade engineering team will send your custom platform demo details to <span className="text-[#0071E3] font-bold">{formData.email}</span> within 24 hours.
             </p>
             <button
               onClick={handleReset}
@@ -114,16 +112,14 @@ export default function Modal({ isOpen, onClose, mode = 'deck' }) {
           <div>
             <div className="flex items-center gap-3 mb-4">
               <div className="p-2.5 rounded-2xl bg-[#0071E3]/10 border border-[#0071E3]/20 text-[#0071E3]">
-                {mode === 'deck' ? <FileText className="w-5 h-5" /> : <Calendar className="w-5 h-5" />}
+                <Calendar className="w-5 h-5" />
               </div>
               <div>
                 <h3 className="text-xl font-extrabold text-[#1D1D1F]">
-                  {mode === 'deck' ? 'Request Investor Pitch Deck' : 'Schedule Product Demo'}
+                  Schedule Product Demo
                 </h3>
                 <p className="text-xs text-[#86868B] font-medium">
-                  {mode === 'deck' 
-                    ? 'Get confidential access to our growth metrics, architecture, and investment thesis' 
-                    : 'See Agentic Customs execute live customs filings in an interactive pilot demo'}
+                  Experience Qubere's AI Customs Compliance Platform in a 1-on-1 walkthrough
                 </p>
               </div>
             </div>
@@ -166,7 +162,7 @@ export default function Modal({ isOpen, onClose, mode = 'deck' }) {
                   type="email"
                   name="email"
                   autoComplete="email"
-                  placeholder="name@company.com or name@fund.com"
+                  placeholder="name@freightforwarder.com or name@importer.com"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   className="w-full px-3.5 py-2.5 text-xs rounded-xl bg-[#FAFAFC] border border-black/10 text-[#1D1D1F] placeholder-[#86868B] focus:outline-none focus:border-[#0071E3]"
@@ -175,24 +171,24 @@ export default function Modal({ isOpen, onClose, mode = 'deck' }) {
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-xs font-bold text-[#1D1D1F] mb-1">Organization *</label>
+                  <label className="block text-xs font-bold text-[#1D1D1F] mb-1">Company / Organization *</label>
                   <input
                     required
                     type="text"
                     name="company"
                     autoComplete="organization"
-                    placeholder="Company / Fund Name"
+                    placeholder="Company Name"
                     value={formData.company}
                     onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                     className="w-full px-3.5 py-2.5 text-xs rounded-xl bg-[#FAFAFC] border border-black/10 text-[#1D1D1F] placeholder-[#86868B] focus:outline-none focus:border-[#0071E3]"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-bold text-[#1D1D1F] mb-1">Role / Focus</label>
+                  <label className="block text-xs font-bold text-[#1D1D1F] mb-1">Role / Segment</label>
                   <input
                     type="text"
                     name="role"
-                    placeholder="e.g. GP, VP Trade, CTO"
+                    placeholder="Freight Forwarder, Customs Broker, Importer"
                     value={formData.role}
                     onChange={(e) => setFormData({ ...formData, role: e.target.value })}
                     className="w-full px-3.5 py-2.5 text-xs rounded-xl bg-[#FAFAFC] border border-black/10 text-[#1D1D1F] placeholder-[#86868B] focus:outline-none focus:border-[#0071E3]"
@@ -205,7 +201,7 @@ export default function Modal({ isOpen, onClose, mode = 'deck' }) {
                 <textarea
                   rows="2"
                   name="note"
-                  placeholder="Any specific focus area or interest..."
+                  placeholder="Tell us about your customs filing volume or compliance requirements..."
                   value={formData.note}
                   onChange={(e) => setFormData({ ...formData, note: e.target.value })}
                   className="w-full px-3.5 py-2.5 text-xs rounded-xl bg-[#FAFAFC] border border-black/10 text-[#1D1D1F] placeholder-[#86868B] focus:outline-none focus:border-[#0071E3]"
@@ -223,13 +219,13 @@ export default function Modal({ isOpen, onClose, mode = 'deck' }) {
                 disabled={sending}
                 className="w-full py-3 rounded-full bg-[#0071E3] hover:bg-[#0077ED] disabled:opacity-60 disabled:cursor-not-allowed text-white font-bold text-xs shadow-md shadow-blue-500/15 flex items-center justify-center gap-2 transition-all mt-4"
               >
-                <span>{sending ? 'Sending…' : 'Submit Request'}</span>
+                <span>{sending ? 'Sending…' : 'Schedule Demo'}</span>
                 <Send className="w-3.5 h-3.5" />
               </button>
 
               <p className="text-[10px] text-center text-[#86868B] flex items-center justify-center gap-1 mt-2 font-medium">
                 <Lock className="w-3 h-3 text-[#86868B]" />
-                <span>Strictly confidential. Enterprise NDA protected.</span>
+                <span>Strictly confidential. Enterprise trade compliance protection.</span>
               </p>
             </form>
           </div>
@@ -238,3 +234,4 @@ export default function Modal({ isOpen, onClose, mode = 'deck' }) {
     </div>
   );
 }
+

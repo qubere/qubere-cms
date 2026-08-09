@@ -73,6 +73,15 @@ export default function TradeKnowledgeGraphBlogPage({ onOpenModal }) {
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 py-12 space-y-16">
       
+      {/* Breadcrumb Navigation */}
+      <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs font-semibold text-[#86868B]">
+        <a href="/" className="hover:text-[#1D1D1F] transition-colors">Home</a>
+        <span>/</span>
+        <a href="/blog" className="hover:text-[#1D1D1F] transition-colors">Blog</a>
+        <span>/</span>
+        <span className="text-[#1D1D1F] truncate">Trade Knowledge Graph</span>
+      </nav>
+
       {/* ARTICLE HEADER / META */}
       <header className="text-center space-y-6 max-w-3xl mx-auto">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0071E3]/10 border border-[#0071E3]/20 text-[#0071E3] text-xs font-bold shadow-sm">
@@ -94,7 +103,9 @@ export default function TradeKnowledgeGraphBlogPage({ onOpenModal }) {
             <div className="w-6 h-6 rounded-full bg-[#0071E3] text-white flex items-center justify-center font-bold text-[10px]">
               Q
             </div>
-            <span className="font-bold text-[#1D1D1F]">Qubere Engineering Team</span>
+            <a href="/about" className="font-bold text-[#1D1D1F] hover:text-[#0071E3] transition-colors">
+              Qubere Engineering Team
+            </a>
           </div>
           <span>•</span>
           <span>Published August 2026</span>

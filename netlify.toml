@@ -4,9 +4,73 @@
   status = 301
   force = true
 
-# SPA single-page rewrite for Netlify routing across subdomains (e.g. blog.qubere.ai)
+# Domain canonicalization: www to non-www
+[[redirects]]
+  from = "https://www.qubere.ai/*"
+  to = "https://qubere.ai/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.qubere.ai/*"
+  to = "https://qubere.ai/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://qubere.ai/*"
+  to = "https://qubere.ai/:splat"
+  status = 301
+  force = true
+
+# Blog subdomain consolidation to main domain /blog/
+[[redirects]]
+  from = "https://blog.qubere.ai/*"
+  to = "https://qubere.ai/blog/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://blog.qubere.ai/*"
+  to = "https://qubere.ai/blog/:splat"
+  status = 301
+  force = true
+
+# Legacy root blog paths to /blog/ slug 301 redirects
+[[redirects]]
+  from = "/trade-knowledge-graph"
+  to = "/blog/trade-knowledge-graph"
+  status = 301
+
+[[redirects]]
+  from = "/architecture"
+  to = "/blog/architecture"
+  status = 301
+
+[[redirects]]
+  from = "/evidence-backed-ai"
+  to = "/blog/evidence-backed-ai"
+  status = 301
+
+[[redirects]]
+  from = "/ai-customs-compliance"
+  to = "/blog/ai-customs-compliance"
+  status = 301
+
+[[redirects]]
+  from = "/us-import-entry-readiness"
+  to = "/blog/us-import-entry-readiness"
+  status = 301
+
+[[redirects]]
+  from = "/team"
+  to = "/about"
+  status = 301
+
+# SPA fallback rewrite
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+
 
