@@ -7,11 +7,11 @@ export const DOMAIN = 'https://qubere.ai';
 
 export const routeMetaMap = {
   '/': {
-    title: 'AI Customs Compliance Software for Document-to-Filing Readiness | Qubere',
-    description: 'Qubere helps customs and trade-compliance teams turn invoices and product data into evidence-backed, review-ready import decisions before filing with CBP.',
+    title: 'The First Agentic Customs Broker | Qubere',
+    description: 'Qubere is the first agentic customs broker. Digital agents work import files 24/7, providing transparent HTS reasoning traces and zero-headcount scale for importers and 3PLs.',
     canonical: `${DOMAIN}/`,
-    ogTitle: 'AI Customs Compliance Software for Document-to-Filing Readiness | Qubere',
-    ogDescription: 'Qubere helps customs and trade-compliance teams turn invoices and product data into evidence-backed, review-ready import decisions before filing with CBP.',
+    ogTitle: 'The First Agentic Customs Broker | Qubere',
+    ogDescription: 'Qubere is the first agentic customs broker. Digital agents work import files 24/7, providing transparent HTS reasoning traces and zero-headcount scale for importers and 3PLs.',
     ogType: 'website',
     schema: {
       '@context': 'https://schema.org',

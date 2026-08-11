@@ -18,7 +18,7 @@ export default function Footer({ setActiveTab, onOpenModal }) {
           </div>
           <span className="font-bold text-[#1D1D1F]">Qubere</span>
           <span className="text-black/10">|</span>
-          <span className="font-medium">Enterprise AI for Global Trade & Customs Compliance</span>
+          <span className="font-medium">The First Agentic Customs Broker</span>
         </div>
 
         {/* Links */}

@@ -177,6 +177,23 @@ export default function ProductSuitePage({ onOpenModal }) {
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 space-y-12">
 
+      {/* PAGE HEADER */}
+      <section className="text-center space-y-4 max-w-3xl mx-auto">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0071E3]/10 border border-[#0071E3]/20 text-[#0071E3] text-xs font-bold uppercase tracking-wider">
+          <ShieldCheck className="w-4 h-4" />
+          <span>The First Agentic Customs Broker</span>
+        </div>
+
+        <h1 className="text-3xl sm:text-5xl font-extrabold text-[#1D1D1F] tracking-tight leading-tight">
+          An Agentic Workforce <br />
+          <span className="apple-blue-text-light">For Regulated Global Commerce.</span>
+        </h1>
+
+        <p className="text-xs sm:text-base text-[#6E6E73] leading-relaxed">
+          Customs brokerage is a licensed profession. Legacy software bolts AI chatbots onto manual forms. Qubere's digital agents <em>are</em> the workflow—processing entry summaries 24/7 with zero-headcount scale.
+        </p>
+      </section>
+
       {/* PRODUCT MODULES GRID */}
       <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {productModules.map((product) => {

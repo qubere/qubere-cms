@@ -16,18 +16,18 @@ export default function AiCustomsCompliancePage({ onOpenModal }) {
 
       {/* Hero Section */}
       <section className="text-center space-y-4">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0071E3]/10 border border-[#0071E3]/20 text-[#0071E3] text-xs font-bold shadow-sm">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0071E3]/10 border border-[#0071E3]/20 text-[#0071E3] text-xs font-bold shadow-sm uppercase tracking-wider">
           <ShieldCheck className="w-3.5 h-3.5" />
-          <span>Core Capability</span>
+          <span>The First Agentic Customs Broker</span>
         </div>
         
         <h1 className="text-4xl sm:text-6xl font-extrabold text-[#1D1D1F] tracking-tight leading-tight">
-          AI Customs Compliance for <br />
-          <span className="apple-blue-text-light">Document-to-Filing Readiness</span>
+          Agentic Customs Brokerage for <br />
+          <span className="apple-blue-text-light">24/7 Document-to-Filing Velocity</span>
         </h1>
 
         <p className="text-base sm:text-lg text-[#6E6E73] max-w-3xl mx-auto leading-relaxed font-normal">
-          Qubere is the decision layer before filing. We turn unstructured commercial invoices, bills of lading, and product master data into evidence-backed, review-ready import decisions before they reach customs.
+          Customs brokerage is a licensed profession. Legacy software bolts AI onto forms; Qubere’s digital agents <em>are</em> the workflow. We work import files 24/7 with verifiable reasoning traces and zero-headcount scale.
         </p>
 
         <div className="pt-4 flex justify-center">
