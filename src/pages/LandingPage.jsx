@@ -25,7 +25,8 @@ import {
   AlertTriangle,
   Zap,
   XCircle,
-  HelpCircle
+  HelpCircle,
+  Info
 } from 'lucide-react';
 
 export default function LandingPage({ setActiveTab, onOpenModal }) {
