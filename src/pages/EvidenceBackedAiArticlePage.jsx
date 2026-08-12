@@ -29,7 +29,7 @@ export default function EvidenceBackedAiArticlePage({ onOpenModal }) {
           <div className="flex items-center gap-2">
             <User className="w-4 h-4 text-[#0071E3]" />
             <a href="/about" className="font-bold text-[#1D1D1F] hover:text-[#0071E3] transition-colors">
-              Rachit Lohani & Krishna Bandi
+              Rachit Lohani
             </a>
           </div>
           <span>•</span>

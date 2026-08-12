@@ -165,7 +165,7 @@ export default function ThesisPage({ setActiveTab, onOpenModal }) {
                 Why Evidence-Backed AI
               </h3>
               <p className="text-xs text-[#6E6E73] leading-relaxed">
-                Founder paper by Rachit Lohani & Krishna Bandi on why customs AI must be grounded in ruling citations and human controls.
+                Founder paper by Rachit Lohani on why customs AI must be grounded in ruling citations and human controls.
               </p>
             </div>
             <div className="pt-4 mt-6 border-t border-black/5 flex items-center justify-between text-xs font-bold text-[#0071E3]">

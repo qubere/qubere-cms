@@ -24,13 +24,8 @@ export const routeMetaMap = {
         {
           '@type': 'Person',
           'name': 'Rachit Lohani',
-          'jobTitle': 'Co-Founder',
+          'jobTitle': 'Founder',
           'sameAs': 'https://www.linkedin.com/in/rachitlohani/'
-        },
-        {
-          '@type': 'Person',
-          'name': 'Krishna Bandi',
-          'jobTitle': 'Co-Founder'
         }
       ]
     }
@@ -57,10 +52,10 @@ export const routeMetaMap = {
   },
   '/about': {
     title: 'About Qubere | Executive Leadership & Trade Compliance Pioneers',
-    description: 'Meet the team behind Qubere. Founded by Rachit Lohani (former CPTO at E2open & Paylocity) and Krishna Bandi (30+ years in supply chain and customs filing).',
+    description: 'Meet the team behind Qubere. Founded by Rachit Lohani (former CPTO at E2open & Paylocity).',
     canonical: `${DOMAIN}/about`,
     ogTitle: 'About Qubere | Executive Leadership & Trade Compliance Pioneers',
-    ogDescription: 'Meet the team behind Qubere. Founded by Rachit Lohani (former CPTO at E2open & Paylocity) and Krishna Bandi (30+ years in supply chain and customs filing).',
+    ogDescription: 'Meet the team behind Qubere. Founded by Rachit Lohani (former CPTO at E2open & Paylocity).',
     ogType: 'profile',
     schema: {
       '@context': 'https://schema.org',
@@ -74,15 +69,9 @@ export const routeMetaMap = {
           {
             '@type': 'Person',
             'name': 'Rachit Lohani',
-            'jobTitle': 'Co-Founder',
+            'jobTitle': 'Founder',
             'description': 'Former CPTO at E2open and Paylocity; engineering leadership at Atlassian and Intuit.',
             'sameAs': 'https://www.linkedin.com/in/rachitlohani/'
-          },
-          {
-            '@type': 'Person',
-            'name': 'Krishna Bandi',
-            'jobTitle': 'Co-Founder',
-            'description': '30+ years in supply chain and customs filing; former head of customs filing at E2open and BlueJay.'
           }
         ]
       }
@@ -111,7 +100,7 @@ export const routeMetaMap = {
     ogDescription: 'Learn why general LLMs risk penalties in customs compliance and how Qubere anchors every classification proposal in document bounding boxes and CROSS rulings.',
     ogType: 'article',
     publishedDate: '2026-08-08',
-    authors: ['Rachit Lohani', 'Krishna Bandi'],
+    authors: ['Rachit Lohani'],
     schema: [
       {
         '@context': 'https://schema.org',
@@ -120,8 +109,7 @@ export const routeMetaMap = {
         'datePublished': '2026-08-08',
         'dateModified': '2026-08-08',
         'author': [
-          { '@type': 'Person', 'name': 'Rachit Lohani', 'url': `${DOMAIN}/about` },
-          { '@type': 'Person', 'name': 'Krishna Bandi', 'url': `${DOMAIN}/about` }
+          { '@type': 'Person', 'name': 'Rachit Lohani', 'url': `${DOMAIN}/about` }
         ],
         'publisher': { '@type': 'Organization', 'name': 'Qubere', 'url': DOMAIN },
         'mainEntityOfPage': { '@type': 'WebPage', '@id': `${DOMAIN}/blog/evidence-backed-ai` }

@@ -659,7 +659,7 @@ export default function LogicalArchitecturePage({ onOpenModal }) {
             Why Qubere Is Different: Building Truly AI-Native Enterprise Services
           </h2>
           <p className="text-xs sm:text-sm text-[#6E6E73] font-medium">
-            By Rachit Lohani & Krishna Bandi • Engineering Whitepaper for Investors & Enterprise Leaders
+            By Rachit Lohani • Engineering Whitepaper for Investors & Enterprise Leaders
           </p>
         </div>
 

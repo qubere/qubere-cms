@@ -19,17 +19,10 @@ export default function TeamPage({ onOpenModal }) {
   const founders = [
     {
       name: "Rachit Lohani",
-      role: "Co-Founder",
+      role: "Founder",
       bio: "Former CPTO at E2open and Paylocity; executive engineering leadership at Atlassian and Intuit.",
       experience: ["E2open (CPTO)", "Paylocity (CPTO)", "Atlassian", "Intuit"],
       linkedin: "https://www.linkedin.com/in/rachitlohani/"
-    },
-    {
-      name: "Krishna Bandi",
-      role: "Co-Founder",
-      bio: "30+ years in supply chain and customs filing; former Head of Customs Filing at E2open & engineering leader at BlueJay.",
-      experience: ["E2open (Head of Customs Filing)", "BlueJay (Product & Eng Leader)", "30+ Yrs Trade Compliance"],
-      linkedin: "https://www.linkedin.com/in/krishnabandi/"
     }
   ];
 
@@ -219,7 +212,7 @@ export default function TeamPage({ onOpenModal }) {
         </p>
 
         {/* Founder Profiles */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+        <div className="max-w-2xl mx-auto w-full pt-2">
           {founders.map((founder, idx) => (
             <div key={idx} className="apple-card-light p-8 space-y-6 flex flex-col justify-between">
               <div className="space-y-4">
@@ -262,7 +255,7 @@ export default function TeamPage({ onOpenModal }) {
         <div className="apple-card-light p-8 text-center space-y-4">
           <h3 className="text-xl font-bold text-[#1D1D1F]">Transform Your Customs Operations With Qubere</h3>
           <p className="text-xs sm:text-sm text-[#6E6E73] max-w-xl mx-auto leading-relaxed font-medium">
-            Schedule an enterprise platform demonstration with our founders and trade engineering team.
+            Schedule an enterprise platform demonstration with our leadership and trade engineering team.
           </p>
           <div className="pt-2 flex justify-center items-center gap-3">
             <button

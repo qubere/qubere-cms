@@ -63,7 +63,7 @@ export default function BlogHubPage({ setActiveTab, onOpenModal }) {
       href: '/blog/evidence-backed-ai',
       title: 'Why Customs AI Must Be Evidence-Backed Before It Is Autonomous',
       excerpt: 'General-purpose LLMs predict likely tokens, but in customs compliance, ungrounded AI leads to costly misclassifications and CBP penalties. Here is how evidence-backed grounding protects importers.',
-      author: 'Rachit Lohani & Krishna Bandi',
+      author: 'Rachit Lohani',
       date: 'August 2026',
       readTime: '6 min read',
       category: 'Founding Vision',
